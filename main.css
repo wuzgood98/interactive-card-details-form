@@ -1,0 +1,585 @@
+@import url(https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700);
+
+:root {
+  /* primary */
+  /* active input border */
+  --linear-gradient: 120deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%);
+  /* input errors */
+  --red: hsl(0, 100%, 66%);
+  /* neutral */
+  --white: hsl(0, 0%, 100%);
+  --light-grayish-violet: hsl(270, 3%, 87%);
+  --dark-grayish-violet: hsl(279, 6%, 55%);
+  --very-dark-violet: hsl(278, 68%, 11%);
+  --base: 1rem;
+  /* 16px */
+  --base-LH: 1.5rem;
+  /* 24px */
+  --large: 1.125rem;
+  /* 18px */
+  --large-LH: 1.75rem;
+  /* 28px */
+  --medium: 500;
+  --full: 100%;
+
+  --space-grotesk: 'Space Grotesk',
+    sans-serif;
+  ;
+}
+
+:is(*, ::after, ::before) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--space-grotesk);
+  transition: all .3s ease-in-out;
+}
+
+body {
+  --screen: 100vh;
+  width: var(--full);
+  height: var(--screen);
+  background-color: var(--white);
+}
+
+main {
+  width: var(--full);
+  height: var(--full);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./images/bg-main-mobile.png);
+  background-repeat: no-repeat;
+  background-size: 100% 15rem;
+  width: var(--full);
+}
+
+.banner {
+  position: relative;
+  width: var(--full);
+}
+
+.card_container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  max-width: 400px;
+  padding: 1rem .5rem;
+  margin: 0 auto;
+}
+
+.card {
+  --width: 19.8125rem;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  max-width: var(--width);
+}
+
+.card.right {
+  right: 0;
+  top: 1rem;
+}
+
+.card.left {
+  left: 0;
+  bottom: -.2rem;
+}
+
+:is(.card-back, .card-front) {
+  position: relative;
+  max-height: 245px;
+}
+
+:is(.card-back, .card-front) img {
+  max-width: 100%;
+  min-height: 160px;
+  -webkit-box-shadow: 2px 11px 17.5px 12px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 11px 17.5px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 11px 17.5px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card-front-info {
+  position: absolute;
+  inset: 0;
+  width: var(--full);
+  height: var(--full);
+  padding: 1.2rem 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+}
+
+.card-front-info .top {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.card-front-info .top .circle {
+  --value: 30px;
+  height: var(--value);
+  width: var(--value);
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.card-front-info .top .ring {
+  --value: 14px;
+  height: var(--value);
+  width: var(--value);
+  border-radius: 50%;
+  border: 1px solid var(--white);
+}
+
+.card-front-info .bottom {
+  --space: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+.card-front-info .bottom p.number {
+  --spacing: 0.1375rem;
+  --extra: 0rem;
+  font-size: calc(var(--large) + var(--extra));
+  letter-spacing: var(--spacing);
+}
+
+.card-front-info .bottom .name-date {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.card-front-info .bottom .name-date p {
+  --extra: 0rem;
+  --font-size: 0.5875rem;
+  font-size: calc(var(--font-size) + var(--extra));
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-back p {
+  --extra: 0rem;
+  --font-size: 0.5875rem;
+  position: absolute;
+  right: 13%;
+  top: 44.5%;
+  font-size: calc(var(--font-size) + var(--extra));
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+:is(.name, .card_number, .exp_date, .cvc) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+section.form {
+  padding: 2rem 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
+
+
+form {
+  --width: 25.6rem;
+  --gap: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  max-width: var(--width);
+  padding: 1.25rem;
+}
+
+form input::placeholder {
+  font-size: var(--large);
+  font-weight: var(--medium);
+  color: var(--light-grayish-violet);
+}
+
+/* form input {
+  border: 1px solid var(--light-grayish-violet);
+  border-radius: 8px;
+  height: 3rem;
+  padding: 1rem;
+  outline: none;
+  color: var(--very-dark-violet);
+  font-weight: var(--medium);
+} */
+
+form .input_container {
+  --radius: 0.5rem;
+  display: flex;
+  width: 100%;
+  position: relative;
+  height: 3.1rem;
+  background-color: var(--light-grayish-violet);
+  background-image: none;
+  border-radius: var(--radius);
+  padding: 1px;
+}
+
+form .input_container:has(input:focus) {
+  background-image: linear-gradient(var(--linear-gradient));
+}
+
+form .input_container:has(input:invalid) {
+  background-image: none;
+  background-color: var(--red);
+}
+
+form .input_container input {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius);
+  height: var(--full);
+  padding: 1rem;
+  outline: none;
+  color: var(--very-dark-violet);
+  font-weight: var(--medium);
+}
+
+form .input_container input:invalid {
+  border-color: var(--red);
+}
+
+form .input_container:has(input:invalid)~p {
+  display: block;
+  visibility: visible;
+}
+
+.exp_date_container:has(input:invalid)~p {
+  display: block;
+  visibility: visible;
+}
+
+form label {
+  --size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: var(--medium);
+  color: var(--very-dark-violet);
+  letter-spacing: 1.5px;
+  font-size: var(--size);
+  padding-left: 1px;
+}
+
+form :is(.name, .card_number, .exp_date, .cvc) {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+form .exp_date-cvc {
+  display: flex;
+  gap: .8rem;
+  width: var(--full);
+  flex-wrap: wrap;
+}
+
+form .exp_date-cvc .exp_date {
+  flex: 1;
+  min-width: 8.437rem;
+}
+
+form .exp_date-cvc .exp_date div:first-of-type {
+  display: flex;
+  gap: .48rem;
+}
+
+
+form .exp_date-cvc .cvc {
+  --half: 2;
+  width: calc(var(--full) / var(--half));
+  min-width: 8.437rem;
+  flex: 1;
+}
+
+form :is(input, button) {
+  cursor: pointer;
+}
+
+form button {
+  --button-height: 3.125rem;
+  --button-font: 0rem;
+  background-color: var(--very-dark-violet);
+  height: var(--button-height);
+  text-align: center;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--white);
+  font-size: calc(var(--large) + var(--button-font));
+}
+
+/*  fix this error nonsense */
+.error_message {
+  --error-size: 0.75rem;
+  --error-extra: 0rem;
+  font-size: calc(var(--error-size) + var(--error-extra));
+  color: var(--red);
+  font-weight: var(--medium);
+  display: none;
+  visibility: hidden;
+}
+
+form .input_container:has(input:invalid) {
+  background-image: none;
+  background-color: var(--red);
+}
+
+.name.error .input_container:has(input[id="name"]) {
+  background-color: var(--red);
+}
+
+.name.error>.error_message {
+  display: block;
+  visibility: visible;
+}
+
+.card_number.error .input_container:has(input[id="cardNumber"]) {
+  background-color: var(--red);
+}
+
+.card_number.error>.error_message {
+  display: block;
+  visibility: visible;
+}
+
+.exp_date.month_empty .input_container:has(input[id="month"]) {
+  background-color: var(--red);
+}
+
+.exp_date.year_empty .input_container:has(input[id="year"]) {
+  background-color: var(--red);
+}
+
+.exp_date.error>.error_message {
+  display: block;
+  visibility: visible;
+}
+
+.cvc.error>.error_message {
+  display: block;
+  visibility: visible;
+}
+
+.cvc.error .input_container:has(input[id="cvc"]) {
+  background-color: var(--red);
+}
+
+.thank_you_card {
+  --width: 22.6rem;
+  --gap: 1rem;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  text-align: center;
+  max-width: var(--width);
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
+
+section.hide .thank_you_card {
+  display: flex;
+  visibility: visible;
+}
+
+.thank_you_card img {
+  --value: 5.625rem;
+  width: var(--value);
+  height: var(--value);
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.thank_you_card h1 {
+  color: var(--very-dark-violet);
+  font-size: 2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.thank_you_card p {
+  color: var(--dark-grayish-violet);
+  font-size: var(--large);
+  font-weight: var(--medium);
+  margin-bottom: 1.9rem;
+}
+
+.thank_you_card button {
+  --button-height: 3.8rem;
+  --button-font: 0.1rem;
+  background-color: var(--very-dark-violet);
+  width: var(--full);
+  height: var(--button-height);
+  text-align: center;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--white);
+  font-size: calc(var(--large) + var(--button-font));
+  cursor: pointer;
+}
+
+
+/* footer */
+.attribution {
+  max-width: 12rem;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  font-size: 11px;
+  text-align: center;
+  z-index: 3;
+  color: var(--dark-grayish-violet);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+  transition: color .3s ease-in-out;
+}
+
+.attribution a:hover {
+  color: var(--very-dark-violet);
+}
+
+
+
+/* media queries */
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    background-image: url(./images/bg-main-desktop.png);
+    background-size: 35% 100%;
+  }
+
+  .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 50%;
+  }
+
+  .card_container {
+    max-width: 100%;
+    min-height: max-content;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .card {
+    --width: 20rem;
+    position: relative;
+    padding: 0;
+  }
+
+  .card.right {
+    align-self: flex-end;
+    position: relative;
+  }
+
+  .card.left {
+    align-self: center;
+    position: relative;
+    left: 6vw;
+    margin-right: 4rem;
+  }
+
+  section.form {
+    padding: 0;
+    flex: 50%;
+  }
+
+  /* footer */
+  .attribution {
+    max-width: max-content;
+    position: absolute;
+    bottom: .5rem;
+    right: 0;
+    left: 0;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .card {
+    --width: 27.9375rem;
+  }
+
+  .card-back p {
+    --extra: 0.3375rem;
+  }
+
+  .card-front-info {
+    padding: 1.7rem 1.7rem 1.7rem;
+  }
+
+  .card-front-info .top {
+    gap: 1rem;
+  }
+
+  .card-front-info .top .circle {
+    --value: 3rem;
+  }
+
+  .card-front-info .top .ring {
+    --value: 1.4rem;
+  }
+
+  .card-front-info .bottom {
+    --space: 1.5rem;
+  }
+
+  .card-front-info .bottom p.number {
+    --spacing: 0.1875rem;
+    --extra: 0.6rem;
+  }
+
+  .card-front-info .bottom .name-date p {
+    --extra: 0.3375rem;
+  }
+
+  form {
+    --width: 27rem;
+    --gap: 2rem;
+  }
+
+  form input {
+    font-size: var(--large);
+  }
+
+  form label {
+    --size: 0.85rem
+  }
+
+  form button {
+    --button-height: 3.8rem;
+    --button-font: 0.2rem;
+  }
+
+  .error_message {
+    --error-extra: 0rem;
+  }
+
+  .thank_you_card {
+    --width: 27rem;
+    --gap: 1.1rem;
+  }
+}
